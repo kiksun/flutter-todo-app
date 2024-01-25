@@ -19,6 +19,7 @@ mixin _$Todo {
   int get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
+  Priority get priority => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,7 @@ abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res, Todo>;
   @useResult
-  $Res call({int id, String content, bool completed});
+  $Res call({int id, String content, bool completed, Priority priority});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? id = null,
     Object? content = null,
     Object? completed = null,
+    Object? priority = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +64,10 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
           ? _value.completed
           : completed // ignore: cast_nullable_to_non_nullable
               as bool,
+      priority: null == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as Priority,
     ) as $Val);
   }
 }
@@ -73,7 +79,7 @@ abstract class _$$TodoImplCopyWith<$Res> implements $TodoCopyWith<$Res> {
       __$$TodoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String content, bool completed});
+  $Res call({int id, String content, bool completed, Priority priority});
 }
 
 /// @nodoc
@@ -89,6 +95,7 @@ class __$$TodoImplCopyWithImpl<$Res>
     Object? id = null,
     Object? content = null,
     Object? completed = null,
+    Object? priority = null,
   }) {
     return _then(_$TodoImpl(
       id: null == id
@@ -103,6 +110,10 @@ class __$$TodoImplCopyWithImpl<$Res>
           ? _value.completed
           : completed // ignore: cast_nullable_to_non_nullable
               as bool,
+      priority: null == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as Priority,
     ));
   }
 }
@@ -111,7 +122,10 @@ class __$$TodoImplCopyWithImpl<$Res>
 
 class _$TodoImpl implements _Todo {
   const _$TodoImpl(
-      {required this.id, required this.content, required this.completed});
+      {required this.id,
+      required this.content,
+      required this.completed,
+      required this.priority});
 
   @override
   final int id;
@@ -119,10 +133,12 @@ class _$TodoImpl implements _Todo {
   final String content;
   @override
   final bool completed;
+  @override
+  final Priority priority;
 
   @override
   String toString() {
-    return 'Todo(id: $id, content: $content, completed: $completed)';
+    return 'Todo(id: $id, content: $content, completed: $completed, priority: $priority)';
   }
 
   @override
@@ -133,11 +149,14 @@ class _$TodoImpl implements _Todo {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.completed, completed) ||
-                other.completed == completed));
+                other.completed == completed) &&
+            (identical(other.priority, priority) ||
+                other.priority == priority));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, content, completed);
+  int get hashCode =>
+      Object.hash(runtimeType, id, content, completed, priority);
 
   @JsonKey(ignore: true)
   @override
@@ -150,7 +169,8 @@ abstract class _Todo implements Todo {
   const factory _Todo(
       {required final int id,
       required final String content,
-      required final bool completed}) = _$TodoImpl;
+      required final bool completed,
+      required final Priority priority}) = _$TodoImpl;
 
   @override
   int get id;
@@ -158,6 +178,8 @@ abstract class _Todo implements Todo {
   String get content;
   @override
   bool get completed;
+  @override
+  Priority get priority;
   @override
   @JsonKey(ignore: true)
   _$$TodoImplCopyWith<_$TodoImpl> get copyWith =>

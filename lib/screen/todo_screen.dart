@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo/provider/todo.dart';
+import 'package:todo/enum.dart';
+import 'package:todo/model/todo.dart';
 import 'package:todo/provider/todo_list_provider.dart';
 import 'package:todo/screen/todo_item.dart';
 
-Todo a() => const Todo(id: 4, content: 'hogehoge', completed: false);
+Todo a() => const Todo(
+    id: 4, content: 'hogehoge', completed: false, priority: Priority.mid);
 
 class TodoScreen extends ConsumerWidget {
   const TodoScreen({Key? key}) : super(key: key);
@@ -12,7 +14,6 @@ class TodoScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final todoList = ref.watch(todoListProvider);
-    print(TodoScreen);
     return Column(
       children: [
         ListView.builder(

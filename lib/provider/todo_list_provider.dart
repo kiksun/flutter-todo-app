@@ -1,12 +1,13 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:todo/provider/todo.dart';
+import 'package:todo/enum.dart';
+import 'package:todo/model/todo.dart';
 
 part 'todo_list_provider.g.dart';
 
 const mockTodoList = <Todo>[
-  Todo(id: 0, content: 'breakfast', completed: false),
-  Todo(id: 1, content: 'lunch', completed: true),
-  Todo(id: 2, content: 'dinner', completed: false),
+  Todo(id: 0, content: 'breakfast', completed: false,priority:Priority.high),
+  Todo(id: 1, content: 'lunch', completed: true, priority: Priority.mid),
+  Todo(id: 2, content: 'dinner', completed: false, priority: Priority.low),
 ];
 
 @riverpod

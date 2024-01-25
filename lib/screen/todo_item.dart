@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../provider/todo.dart';
+import '../model/todo.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem({
@@ -17,6 +17,7 @@ class TodoItem extends StatelessWidget {
     print('TodoItem: ${todoContent.content}');
     return Material(
       child: Container(
+        color: todoContent.priority.backgroundColor,
         margin:
             const EdgeInsetsDirectional.symmetric(horizontal: 50, vertical: 10),
         child: Row(
