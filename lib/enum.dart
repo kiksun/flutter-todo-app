@@ -8,3 +8,8 @@ enum Priority {
   final Color backgroundColor;
   const Priority(this.backgroundColor);
 }
+enum CompletedFilter {
+  none,
+  completed,
+  uncompleted,
+}
